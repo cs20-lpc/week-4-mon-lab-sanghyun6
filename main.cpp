@@ -1,7 +1,8 @@
 #include "LinkedList.hpp"
 #include <string>
 
-int main() {
+int main()
+{
     // call the constructor
     LinkedList<string> myList;
 
@@ -11,10 +12,12 @@ int main() {
     myList.insert(0, "May");
 
     // try replacing as an invalid operation
-    try {
+    try
+    {
         myList.replace(-3, "?");
     }
-    catch (string& e) {
+    catch (string &e)
+    {
         cerr << e << endl;
     }
 
@@ -22,10 +25,12 @@ int main() {
     myList.append("Citrus");
 
     // try inserting as an invalid operation
-    try {
+    try
+    {
         myList.insert(5, "kweh");
     }
-    catch (string& e) {
+    catch (string &e)
+    {
         cerr << e << endl;
     }
 
@@ -48,10 +53,12 @@ int main() {
     cout << secondList;
 
     // try removing an element as an invalid operation
-    try {
+    try
+    {
         secondList.remove(4);
     }
-    catch (string& e) {
+    catch (string &e)
+    {
         cerr << e << endl;
     }
 
@@ -76,24 +83,66 @@ int main() {
     cout << thirdList;
 
     // try getting elements as an invalid operation
-    try {
+    try
+    {
         cout << thirdList.getElement(-7) << endl;
     }
-    catch (string& e) {
+    catch (string &e)
+    {
         cerr << e << endl;
     }
-    try {
+    try
+    {
         cout << thirdList.getElement(7) << endl;
     }
-    catch (string& e) {
+    catch (string &e)
+    {
         cerr << e << endl;
     }
 
     // clear out the list and verify it is now empty
     myList.clear();
-    if (myList.isEmpty()) {
+    if (myList.isEmpty())
+    {
         cout << "myList is empty!\n";
     }
+
+    LinkedList<int> nums;
+
+    nums.append(1);
+    nums.append(2);
+    nums.insert(1, 5);
+    cout << nums;
+
+    try
+    {
+        nums.insert(10, 3);
+    }
+    catch (string &e)
+    {
+        cerr << e << endl;
+    }
+
+    try
+    {
+        nums.remove(5);
+    }
+    catch (string &e)
+    {
+        cerr << e << endl;
+    }
+
+    try
+    {
+        cout << nums.getElement(-1) << endl;
+    }
+    catch (string &e)
+    {
+        cerr << e << endl;
+    }
+
+    nums.clear();
+    cout << nums;
 
     // terminate
     return 0;
